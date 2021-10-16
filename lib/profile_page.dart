@@ -217,8 +217,54 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
 
-              Container(
+              //button container
 
+              Container(
+                 height: MediaQuery.of(context).size.height/7,
+                 width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.symmetric(horizontal: 17),
+                child: Wrap(
+                  children:[
+
+                    //post button container
+
+
+                    Container(
+                      height: MediaQuery.of(context).size.height/15,
+                      width: MediaQuery.of(context).size.width/4,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(250, 250, 250, .6),
+                        border: Border.all(
+                          color: Color.fromRGBO(31, 31, 31, 1),
+                          width: 3,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+                      child: FlatButton.icon(
+                          onPressed: (){},
+                          icon: Icon(
+                            Icons.post_add_sharp,
+                            size: 15,
+                            color: Color.fromRGBO(21, 21, 21, 1),
+                          ),
+                          label: Text(
+                            "Posts",
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15,
+                              color: Color.fromRGBO(21, 21, 21, 1),
+                            ),
+                          ),
+                      ),
+                    ),
+                    //following button container
+                    Container(),
+                    //follower button container
+                    Container(),
+                    //Messenger button container
+                    Container(),
+                  ]
+                )
               ),
 
             ],
