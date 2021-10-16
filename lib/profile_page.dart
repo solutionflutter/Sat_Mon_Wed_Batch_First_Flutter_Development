@@ -258,7 +258,34 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                     ),
                     //following button container
-                    Container(),
+                    Container(
+                      height: MediaQuery.of(context).size.height/15,
+                      width: MediaQuery.of(context).size.width/3,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(250, 250, 250, .6),
+                        border: Border.all(
+                          color: Color.fromRGBO(21, 21, 21, 1),
+                          width: 3,
+                          style: BorderStyle.solid,
+                        )
+                      ),
+                      child: FlatButton.icon(
+                          onPressed: (){},
+                          icon: Icon(
+                            Icons.message_outlined,
+                            size: 15,
+                            color: Color.fromRGBO(21, 21, 21, 1),
+                          ),
+                          label: Text(
+                              "Messenger",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Color.fromRGBO(21, 21, 21, 1),
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                      ),
+                    ),
                     //follower button container
                     Container(),
                     //Messenger button container
