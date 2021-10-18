@@ -286,10 +286,68 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                       ),
                     ),
+
                     //follower button container
-                    Container(),
-                    //Messenger button container
-                    Container(),
+
+                    Container(
+                      height: MediaQuery.of(context).size.height/15,
+                      width: MediaQuery.of(context).size.width/3.5,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Color.fromRGBO(21, 21, 21, 1),
+                          width: 3,
+                          style: BorderStyle.solid,
+                        ),
+                        color: Color.fromRGBO(250, 250, 250, .6),
+                      ),
+                      child: FlatButton.icon(
+                          onPressed: (){},
+                          icon: Icon(
+                            Icons.follow_the_signs_rounded,
+                            size: 15,
+                            color: Color.fromRGBO(21, 21, 21, 1),
+                          ),
+                          label: Text(
+                              "Follower",
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                              color: Color.fromRGBO(21, 21, 21, 1),
+                            ),
+                          ),
+                      ),
+                    ),
+
+                    //Following button container
+
+                    Container(
+                      height: MediaQuery.of(context).size.height/15,
+                      width: MediaQuery.of(context).size.width/3.2,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(250, 250, 250, .6),
+                        border: Border.all(
+                          color: Color.fromRGBO(21, 21, 21, 1),
+                          width: 3,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+                      child: FlatButton.icon(
+                          onPressed: (){}, 
+                          icon: Icon(
+                            Icons.add_circle,
+                            size: 15,
+                            color: Color.fromRGBO(21, 21, 21, 1),
+                          ), 
+                          label: Text(
+                              "Following",
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                              color: Color.fromRGBO(21, 21, 21, 1),
+                            ),
+                          ),
+                      ),
+                    ),
                   ]
                 )
               ),
