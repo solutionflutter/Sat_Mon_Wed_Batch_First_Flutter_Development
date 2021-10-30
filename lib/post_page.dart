@@ -5,16 +5,16 @@ import 'package:satmonwedbatchfirst/profile_page.dart';
 
 
 List<Postmodel> postmodels = [
-  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: null, address: null, likes: 34, postImageURL: null),
-  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: null, address: null, likes: 234, postImageURL: null),
-  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: null, address: null, likes: 57, postImageURL: null),
-  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: null, address: null, likes: 43, postImageURL: null),
-  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: null, address: null, likes: 56, postImageURL: null),
-  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: null, address: null, likes: 65, postImageURL: null),
-  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: null, address: null, likes: 67, postImageURL: null),
-  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: null, address: null, likes: 76, postImageURL: null),
-  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: null, address: null, likes: 3343, postImageURL: null),
-  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: null, address: null, likes: 343, postImageURL: null),
+  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: "Khulna Government Mahila College", address: "Jalil - Sarani, Khulna,Khulna,Bangaldesh", likes: 34, postImageURL: null),
+  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: "Khulna College", address: "Seikh Para Main Rd, Khulna,Khulna,Bangladesh", likes: 234, postImageURL: null),
+  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: "Ahsanullah College", address: "KDA Ave, Khulna,Khulna,Bangladesh", likes: 57, postImageURL: null),
+  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: "Azam Khan Government Commerce College", address: "Babu Khan Rd, Khulna,Khulna,Bangladesh", likes: 43, postImageURL: null),
+  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: "Govt. Brajalal (BL) College", address: "Kashipur, B.L. College Rd, Khulna,Khulna,Bangladesh", likes: 56, postImageURL: null),
+  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: "Govt. M. M. City College", address: "300 Khan Jahan Ali Rd, Khulna-9100,Khulna,Bangladesh", likes: 65, postImageURL: null),
+  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: "Khulna Public College", address: "public college, road, Khulna-9000,Khulna,Bangladesh", likes: 67, postImageURL: null),
+  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: "Khulna Government College", address: "Hasanbag Road, Khulna,Khulna,Bangladesh", likes: 76, postImageURL: null),
+  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: "Government Sundarban Adarsha College", address: "91 Khanjhan Ali road, Jessore-Dhaka Highway, Khulna,Bangladesh", likes: 3343, postImageURL: null),
+  Postmodel(username: "Mahmudul Mursalin", profileImageURL: "images/Mahmudul Mirsalin.jpg", caption: "Khulna Islamia Degree College", address: " M A Bari St, Khulna,Khulna,Bangladesh", likes: 343, postImageURL: null),
 ];
 
 class Post_page extends StatefulWidget {
@@ -75,7 +75,7 @@ class _Post_pageState extends State<Post_page> {
         body: Align(
           alignment: Alignment.centerLeft,
           child: ListView.builder(
-            itemCount:, 
+            itemCount: postmodels.length,
             itemBuilder: (BuildContext context,int index){
               return Container();
             }
