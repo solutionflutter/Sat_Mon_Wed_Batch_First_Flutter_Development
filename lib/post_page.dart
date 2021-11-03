@@ -239,6 +239,67 @@ class _Post_pageState extends State<Post_page> {
                       ),
                     ),
                   ),
+
+                  // Post image container
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 5),
+                    child: Container(
+                      height: MediaQuery.of(context).size.height / 4,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image:
+                              AssetImage("${postmodels[index].postImageURL}"),
+                          fit: BoxFit.fill,
+                        ),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  ),
+
+                  //share ,comments and likes button padding
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        //likes button container
+
+                        Container(
+                          height: MediaQuery.of(context).size.height / 15,
+                          width: MediaQuery.of(context).size.width / 4,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Color.fromRGBO(0, 0, 0, .6),
+                              width: 3,
+                              style: BorderStyle.solid,
+                            ),
+                          ),
+                          child: InkWell(
+                            onTap: () {},
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Icon(
+                                  CupertinoIcons.heart,
+                                  color: Color.fromRGBO(0, 0, 0, 1),
+                                  size: 15,
+                                ),
+                                Text(
+                                  "${postmodels[index].likes} likes",
+                                  style: TextStyle(
+                                    color: Color.fromRGBO(0, 0, 0, 1),
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             );
