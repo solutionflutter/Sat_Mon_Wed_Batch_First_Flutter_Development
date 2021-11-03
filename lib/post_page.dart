@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:satmonwedbatchfirst/models/models.dart';
@@ -131,179 +133,271 @@ class _Post_pageState extends State<Post_page> {
           ),
         ],
       ),
-      body: Align(
-        alignment: Alignment.centerLeft,
-        child: ListView.builder(
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          itemCount: postmodels.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-              height: MediaQuery.of(context).size.height / 1.5,
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  //Header Row profile image
-                  Row(
+      body: SafeArea(
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: ListView.builder(
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            itemCount: postmodels.length,
+            itemBuilder: (BuildContext context, int index) {
+              return SafeArea(
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  margin: EdgeInsets.symmetric(vertical: 12),
+                  height: MediaQuery.of(context).size.height / 1.5,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Color.fromRGBO(122, 245, 24, .1),
+                          Color.fromRGBO(122, 245, 24, .4),
+                        ]),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      CircleAvatar(
-                        radius: 34,
-                        backgroundImage:
-                            AssetImage("${postmodels[index].profileImageURL}"),
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15),
-                          child: RichText(
-                            textAlign: TextAlign.justify,
-                            text: TextSpan(
-                              text: "${postmodels[index].username}\n",
-                              style: TextStyle(
-                                fontSize: 17,
-                                fontWeight: FontWeight.w700,
-                                color: Color.fromRGBO(0, 0, 0, .6),
-                              ),
-                              children: [
-                                TextSpan(
-                                  text:
-                                      "${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}  ${DateTime.now().hour}",
+                      //Header Row profile image
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 34,
+                            backgroundImage: AssetImage(
+                                "${postmodels[index].profileImageURL}"),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 15),
+                              child: RichText(
+                                textAlign: TextAlign.justify,
+                                text: TextSpan(
+                                  text: "${postmodels[index].username}\n",
                                   style: TextStyle(
                                     fontSize: 17,
                                     fontWeight: FontWeight.w700,
                                     color: Color.fromRGBO(0, 0, 0, .6),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  // Address Row and Caption taking column
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height / 9,
-                      child: Column(
-                        children: [
-                          // Addtess row
-
-                          Container(
-                            height: MediaQuery.of(context).size.height / 30,
-                            width: MediaQuery.of(context).size.width,
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.location_on_outlined,
-                                  size: 15,
-                                  color: Color.fromRGBO(0, 0, 0, .6),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 10),
-                                  child: Text(
-                                    "${postmodels[index].address}",
-                                    style: TextStyle(
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color.fromRGBO(0, 0, 0, .6),
+                                  children: [
+                                    TextSpan(
+                                      text:
+                                          "${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}  ${DateTime.now().hour}",
+                                      style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.w700,
+                                        color: Color.fromRGBO(0, 0, 0, .6),
+                                      ),
                                     ),
-                                    textAlign: TextAlign.justify,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-
-                          //Caption Container
-
-                          Padding(
-                            padding: EdgeInsets.symmetric(vertical: 10),
-                            child: Container(
-                              height: MediaQuery.of(context).size.height / 25,
-                              width: MediaQuery.of(context).size.width,
-                              child: Text(
-                                "${postmodels[index].caption}",
-                                style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                  color: Color.fromRGBO(0, 0, 0, .6),
+                                  ],
                                 ),
                               ),
                             ),
                           ),
                         ],
                       ),
-                    ),
-                  ),
 
-                  // Post image container
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 5),
-                    child: Container(
-                      height: MediaQuery.of(context).size.height / 4,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image:
-                              AssetImage("${postmodels[index].postImageURL}"),
-                          fit: BoxFit.fill,
-                        ),
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                    ),
-                  ),
+                      // Address Row and Caption taking column
 
-                  //share ,comments and likes button padding
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 5),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        //likes button container
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height / 9,
+                          child: Column(
+                            children: [
+                              // Addtess row
 
-                        Container(
-                          height: MediaQuery.of(context).size.height / 15,
-                          width: MediaQuery.of(context).size.width / 4,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Color.fromRGBO(0, 0, 0, .6),
-                              width: 3,
-                              style: BorderStyle.solid,
-                            ),
-                          ),
-                          child: InkWell(
-                            onTap: () {},
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Icon(
-                                  CupertinoIcons.heart,
-                                  color: Color.fromRGBO(0, 0, 0, 1),
-                                  size: 15,
+                              Container(
+                                height: MediaQuery.of(context).size.height / 30,
+                                width: MediaQuery.of(context).size.width,
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.location_on_outlined,
+                                      size: 15,
+                                      color: Color.fromRGBO(0, 0, 0, .6),
+                                    ),
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 3),
+                                      child: Text(
+                                        "${postmodels[index].address}",
+                                        style: TextStyle(
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.w500,
+                                          color: Color.fromRGBO(0, 0, 0, .6),
+                                        ),
+                                        textAlign: TextAlign.justify,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  "${postmodels[index].likes} likes",
-                                  style: TextStyle(
-                                    color: Color.fromRGBO(0, 0, 0, 1),
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
+                              ),
+
+                              //Caption Container
+
+                              Padding(
+                                padding: EdgeInsets.symmetric(vertical: 10),
+                                child: Container(
+                                  height:
+                                      MediaQuery.of(context).size.height / 25,
+                                  width: MediaQuery.of(context).size.width,
+                                  child: Text(
+                                    "${postmodels[index].caption}",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color.fromRGBO(0, 0, 0, .6),
+                                    ),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+
+                      // Post image container
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 5),
+                        child: Container(
+                          height: MediaQuery.of(context).size.height / 4,
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  "${postmodels[index].postImageURL}"),
+                              fit: BoxFit.fill,
+                            ),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
+                      ),
+
+                      //share ,comments and likes button padding
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 5),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            //likes button container
+
+                            Container(
+                              height: MediaQuery.of(context).size.height / 15,
+                              width: MediaQuery.of(context).size.width / 4,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Color.fromRGBO(0, 0, 0, .6),
+                                  width: 3,
+                                  style: BorderStyle.solid,
+                                ),
+                              ),
+                              child: InkWell(
+                                onTap: () {},
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Icon(
+                                      CupertinoIcons.heart,
+                                      color: Color.fromRGBO(0, 0, 0, .6),
+                                      size: 15,
+                                    ),
+                                    Text(
+                                      "${postmodels[index].likes} likes",
+                                      style: TextStyle(
+                                        color: Color.fromRGBO(0, 0, 0, .6),
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+
+                            //Comment button container
+
+                            Container(
+                              height: MediaQuery.of(context).size.height / 15,
+                              width: MediaQuery.of(context).size.width / 3.5,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Color.fromRGBO(0, 0, 0, .6),
+                                  width: 3,
+                                  style: BorderStyle.solid,
+                                ),
+                              ),
+                              child: InkWell(
+                                onTap: () {},
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Icon(
+                                      CupertinoIcons.chat_bubble,
+                                      size: 15,
+                                      color: Color.fromRGBO(0, 0, 0, .6),
+                                    ),
+                                    Text(
+                                      "Comments",
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                        color: Color.fromRGBO(0, 0, 0, .6),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+
+                            //Spread Button container
+
+                            Container(
+                              height: MediaQuery.of(context).size.height / 15,
+                              width: MediaQuery.of(context).size.width / 3.5,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Color.fromRGBO(0, 0, 0, .6),
+                                  width: 3,
+                                  style: BorderStyle.solid,
+                                ),
+                              ),
+                              child: InkWell(
+                                onTap: () {},
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Icon(
+                                      Icons.share_outlined,
+                                      size: 15,
+                                      color: Color.fromRGBO(0, 0, 0, .6),
+                                    ),
+                                    Text(
+                                      "Spread",
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                        color: Color.fromRGBO(0, 0, 0, .6),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            );
-          },
+                ),
+              );
+            },
+          ),
         ),
       ),
     );
