@@ -10,10 +10,10 @@ List<FollowingModel> followingModel = [
           "https://img1.hscicdn.com/image/upload/f_auto,t_gn_f_345/lsci/db/PICTURES/CMS/319600/319683.png",
       date: DateTime.now().hour.toString()),
   FollowingModel(
-      userName: "Abdul Razzaq",
+      userName: "Salman Shah",
       userProfileImageURL:
-          "https://www.psl-t20.cricket/wp-content/uploads/2016/01/818261.html_.jpg",
-      date: DateTime.now().hour.toString()),
+          "https://upload.wikimedia.org/wikipedia/en/thumb/1/1e/SalmanShah%28actor%29Image.jpg/220px-SalmanShah%28actor%29Image.jpg",
+      date: DateTime.now().day.toString()),
   FollowingModel(
       userName: "Amitabh Bachchan",
       userProfileImageURL:
@@ -116,7 +116,60 @@ class _Following_pageState extends State<Following_page> {
         ],
         backgroundColor: Color.fromRGBO(240, 240, 240, .6),
       ),
-      body: ,
+      body: Align(
+        alignment: Alignment.centerLeft,
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: ListView.builder(
+            padding: EdgeInsets.symmetric(horizontal: 10),
+            itemCount: followingModel.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                margin: EdgeInsets.symmetric(vertical: 12),
+                height: MediaQuery.of(context).size.height / 10,
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 35,
+                      backgroundImage: NetworkImage(
+                          "${followingModel[index].userProfileImageURL}"),
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      margin: EdgeInsets.symmetric(horizontal: 12),
+                      height: MediaQuery.of(context).size.height / 10,
+                      width: MediaQuery.of(context).size.width / 1.48,
+                      child: RichText(
+                        text: TextSpan(
+                          text: "${followingModel[index].userName}\n",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                            color: Color.fromRGBO(21, 21, 21, 1),
+                            height: 1.3,
+                          ),
+                          children: [
+                            TextSpan(
+                              text: "${followingModel[index].date}",
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400,
+                                color: Color.fromRGBO(21, 21, 21, 1),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
+      ),
     );
   }
 }
